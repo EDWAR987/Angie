@@ -1,0 +1,1177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: #07010d;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    overflow: hidden;
+}
+
+/* ==============================
+   PANTALLAS
+============================== */
+
+.pantalla {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px 20px;
+
+    overflow-y: auto;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(130, 40, 180, 0.20),
+            transparent 50%
+        ),
+        linear-gradient(
+            180deg,
+            #12051b,
+            #050108
+        );
+
+    animation: entrarPantalla 0.7s ease;
+}
+
+.pantalla.activa {
+    display: flex;
+}
+
+@keyframes entrarPantalla {
+
+    from {
+        opacity: 0;
+        transform: scale(1.04);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+.contenido {
+    width: 100%;
+    max-width: 900px;
+
+    text-align: center;
+
+    margin: auto;
+
+    padding: 40px 10px;
+}
+
+/* ==============================
+   TEXTOS
+============================== */
+
+h1,
+h2,
+h3 {
+    font-family: "Cormorant Garamond", serif;
+}
+
+h1 {
+    font-size: clamp(55px, 10vw, 100px);
+    font-weight: 500;
+    line-height: .95;
+}
+
+h1 span {
+    display: block;
+
+    font-family: "Great Vibes", cursive;
+
+    color: #d98cff;
+
+    font-size: 1.25em;
+
+    text-shadow:
+        0 0 25px rgba(210, 100, 255, .5);
+}
+
+h2 {
+    font-size: clamp(40px, 7vw, 70px);
+
+    font-weight: 500;
+
+    margin: 15px 0;
+}
+
+h2 span {
+    color: #d48aff;
+}
+
+h3 {
+    font-size: 48px;
+    color: #db9dff;
+}
+
+p {
+    color: #d9ccdf;
+
+    line-height: 1.8;
+
+    margin: 15px auto;
+
+    max-width: 700px;
+}
+
+.fecha-pequena {
+    color: #d8a5ee;
+
+    letter-spacing: 6px;
+
+    font-size: 12px;
+
+    margin: 20px;
+}
+
+.subtitulo {
+    font-family: "Great Vibes", cursive;
+
+    font-size: 38px;
+
+    color: #e2afff;
+
+    margin: 20px;
+}
+
+.descripcion {
+    font-size: 15px;
+}
+
+.numero {
+    color: #b36ed6;
+
+    letter-spacing: 6px;
+
+    font-size: 13px;
+}
+
+.grande {
+    font-size: 25px;
+}
+
+.destacado {
+    color: #e4aaff;
+
+    font-size: 22px;
+}
+
+/* ==============================
+   ROSA PRINCIPAL
+============================== */
+
+.rosa-principal {
+    font-size: 85px;
+
+    animation:
+        flotar 3s ease-in-out infinite;
+
+    filter:
+        drop-shadow(
+            0 0 25px
+            rgba(210, 80, 255, .7)
+        );
+}
+
+@keyframes flotar {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-18px);
+    }
+
+}
+
+/* ==============================
+   BOTONES
+============================== */
+
+.boton {
+    border: none;
+
+    padding: 15px 30px;
+
+    border-radius: 40px;
+
+    margin-top: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8d2bc2,
+            #dc5cff
+        );
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 25px
+        rgba(190, 70, 255, .35);
+
+    transition: .3s;
+}
+
+.boton:hover {
+    transform: translateY(-4px) scale(1.04);
+
+    box-shadow:
+        0 0 40px
+        rgba(215, 90, 255, .7);
+}
+
+.siguiente {
+    display: block;
+
+    margin: 30px auto 0;
+}
+
+/* ==============================
+   MÚSICA
+============================== */
+
+.boton-musica {
+    position: fixed;
+
+    top: 20px;
+    right: 20px;
+
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,.3);
+
+    background:
+        rgba(70, 10, 100, .8);
+
+    color: white;
+
+    font-size: 21px;
+
+    cursor: pointer;
+
+    z-index: 500;
+}
+
+/* ==============================
+   PÉTALOS
+============================== */
+
+#petalos {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 400;
+
+    overflow: hidden;
+}
+
+.petalo {
+    position: absolute;
+
+    top: -50px;
+
+    animation:
+        caer linear forwards;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(220, 100, 255, .6)
+        );
+}
+
+@keyframes caer {
+
+    0% {
+        transform:
+            translateY(-50px)
+            rotate(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            translateX(120px)
+            rotate(500deg);
+
+        opacity: 0;
+    }
+
+}
+
+/* ==============================
+   ROSAS 3D
+============================== */
+
+.jardin-3d {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 35px;
+
+    max-width: 600px;
+
+    margin: 45px auto 25px;
+
+    perspective: 1000px;
+}
+
+.rosa3d {
+
+    position: relative;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    height: 130px;
+
+    transform-style: preserve-3d;
+
+    transition: .4s;
+}
+
+.rosa3d::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 65px;
+    height: 65px;
+
+    left: 50%;
+    top: 45px;
+
+    transform:
+        translateX(-50%)
+        rotateX(65deg);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #c54cff 0%,
+            #8614bb 35%,
+            #43056a 70%,
+            transparent 72%
+        );
+
+    filter:
+        blur(2px)
+        drop-shadow(
+            0 0 15px
+            rgba(180, 50, 255, .8)
+        );
+
+    opacity: .7;
+}
+
+.rosa3d span {
+
+    display: block;
+
+    font-size: 75px;
+
+    transform:
+        translateZ(30px)
+        rotateX(-8deg);
+
+    filter:
+        drop-shadow(
+            0 8px 8px
+            rgba(0,0,0,.7)
+        )
+        drop-shadow(
+            0 0 18px
+            rgba(210,80,255,.7)
+        );
+
+    transition: .4s;
+}
+
+.rosa3d:hover {
+
+    transform:
+        translateY(-15px)
+        rotateY(15deg)
+        scale(1.08);
+}
+
+.rosa3d:hover span {
+
+    transform:
+        translateZ(55px)
+        rotateX(-8deg)
+        rotateZ(-8deg);
+}
+
+.rosa3d.tocada {
+
+    animation:
+        rosaTocada .6s ease;
+}
+
+@keyframes rosaTocada {
+
+    50% {
+        transform:
+            scale(1.25)
+            rotate(-10deg);
+    }
+
+}
+
+.frase-rosa {
+
+    min-height: 60px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 25px;
+
+    color: #e8b9ff;
+
+    margin: 20px;
+}
+
+/* ==============================
+   FRASES
+============================== */
+
+.contador-frases {
+
+    color: #c889ed;
+
+    font-size: 18px;
+
+    margin: 20px;
+}
+
+.tarjeta-frase {
+
+    width: 100%;
+
+    max-width: 650px;
+
+    min-height: 180px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: 30px auto;
+
+    padding: 30px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(70, 15, 90, .45);
+
+    border:
+        1px solid
+        rgba(210, 130, 255, .25);
+
+    box-shadow:
+        0 0 45px
+        rgba(120, 30, 170, .25);
+}
+
+#mensajeFrase {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 28px;
+
+    color: #f0d5ff;
+}
+
+/* ==============================
+   JUEGO ROSAS
+============================== */
+
+.marcador {
+
+    font-size: 22px;
+
+    color: #d99bff;
+
+    margin-top: 15px;
+}
+
+.tiempo {
+
+    color: #cbb0d5;
+
+    margin-bottom: 15px;
+}
+
+.zona-juego {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 750px;
+
+    height: 350px;
+
+    margin: auto;
+
+    border-radius: 25px;
+
+    border:
+        1px solid
+        rgba(210, 120, 255, .3);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(130, 30, 180, .2),
+            transparent 60%
+        );
+
+    overflow: hidden;
+}
+
+.rosa-juego {
+
+    position: absolute;
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 45px;
+
+    cursor: pointer;
+
+    animation:
+        rosaRapida .18s ease;
+
+    filter:
+        drop-shadow(
+            0 0 15px
+            rgba(220,80,255,.9)
+        );
+}
+
+@keyframes rosaRapida {
+
+    from {
+        transform: scale(.2);
+    }
+
+    to {
+        transform: scale(1);
+    }
+
+}
+
+.premio {
+
+    min-height: 40px;
+
+    margin-top: 15px;
+
+    color: #e6b0ff;
+
+    font-size: 18px;
+}
+
+.password-juego {
+
+    max-width: 450px;
+
+    margin: 25px auto;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    border:
+        1px solid
+        rgba(220,140,255,.4);
+
+    background:
+        rgba(80,20,100,.45);
+
+    box-shadow:
+        0 0 35px
+        rgba(160,50,220,.25);
+}
+
+.password-juego strong {
+
+    display: block;
+
+    font-size: 35px;
+
+    letter-spacing: 8px;
+
+    color: #e6a5ff;
+
+    margin: 15px;
+}
+
+.password-juego small {
+
+    display: block;
+
+    color: #cdb8d5;
+}
+
+/* ==============================
+   SNAKE
+============================== */
+
+.snake-game {
+
+    width: 360px;
+
+    max-width: 100%;
+
+    height: 360px;
+
+    margin: 20px auto;
+
+    padding: 5px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #291035,
+            #0d0314
+        );
+
+    border:
+        1px solid
+        rgba(210,120,255,.35);
+
+    box-shadow:
+        0 0 35px
+        rgba(140,40,190,.25);
+}
+
+#snakeCanvas {
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    border-radius: 15px;
+
+    background:
+        radial-gradient(
+            circle,
+            #170522,
+            #050108
+        );
+}
+
+.snake-marcador {
+
+    color: #db9eff;
+
+    font-size: 19px;
+
+    margin: 15px;
+}
+
+.controles {
+
+    margin: 15px auto;
+
+    width: 220px;
+}
+
+.controles button {
+
+    width: 55px;
+    height: 45px;
+
+    margin: 3px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        rgba(120,40,160,.5);
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+.controles button:hover {
+
+    background:
+        rgba(180,70,220,.7);
+}
+
+.mensaje-snake {
+
+    min-height: 45px;
+
+    color: #e1aaff;
+
+    font-size: 18px;
+
+    margin: 15px;
+}
+
+/* ==============================
+   PASSWORD
+============================== */
+
+.bloque-password {
+
+    max-width: 500px;
+
+    margin: 30px auto;
+
+    padding: 30px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(60,15,80,.5);
+
+    border:
+        1px solid
+        rgba(210,130,255,.3);
+}
+
+#inputPassword {
+
+    width: 100%;
+
+    padding: 15px;
+
+    margin: 15px 0;
+
+    border-radius: 12px;
+
+    border:
+        1px solid
+        rgba(210,120,255,.4);
+
+    background:
+        rgba(0,0,0,.3);
+
+    color: white;
+
+    outline: none;
+
+    text-align: center;
+
+    font-size: 17px;
+}
+
+#errorPassword {
+
+    color: #ff91c8;
+
+    margin-top: 15px;
+}
+
+/* ==============================
+   CARTA
+============================== */
+
+.carta {
+
+    max-width: 750px;
+
+    margin: 30px auto;
+
+    padding: 45px;
+
+    text-align: left;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.04),
+            rgba(120,30,160,.15)
+        );
+
+    border:
+        1px solid
+        rgba(220,150,255,.3);
+
+    box-shadow:
+        0 0 60px
+        rgba(120,30,160,.3);
+
+    animation:
+        aparecerCarta 1s ease;
+}
+
+@keyframes aparecerCarta {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+.corazon-carta {
+
+    text-align: center;
+
+    font-size: 60px;
+}
+
+.carta h3 {
+
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+.carta p {
+
+    color: #e1d4e8;
+
+    line-height: 2;
+
+    margin: 20px 0;
+}
+
+.carta strong {
+
+    color: #efbaff;
+}
+
+.frase-final {
+
+    text-align: center;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 50px;
+
+    color: #e2a5ff;
+
+    margin: 40px 0;
+}
+
+.firma {
+
+    text-align: center;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 26px;
+
+    color: #dda2ff;
+}
+
+/* ==============================
+   FINAL
+============================== */
+
+.final-contenido {
+
+    animation:
+        entradaFinal 2s ease;
+}
+
+@keyframes entradaFinal {
+
+    from {
+        opacity: 0;
+        transform: scale(.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+.corazon-final {
+
+    font-size: 90px;
+
+    animation:
+        latido 1.5s infinite;
+
+    filter:
+        drop-shadow(
+            0 0 25px
+            rgba(220,100,255,.8)
+        );
+}
+
+@keyframes latido {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+}
+
+.final-contenido h1 {
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    color: #e4a6ff;
+
+    font-size: clamp(45px, 8vw, 80px);
+
+    font-weight: 400;
+}
+
+.rosa-final {
+
+    font-size: 70px;
+
+    margin: 25px;
+
+    filter:
+        drop-shadow(
+            0 0 20px
+            rgba(220,80,255,.7)
+        );
+}
+
+.firma-final {
+
+    color: #c9acd5;
+
+    font-size: 18px;
+}
+
+
+/* ==============================
+   CELULAR
+============================== */
+
+@media(max-width:600px) {
+
+    .contenido {
+        padding: 35px 5px;
+    }
+
+    .rosa-principal {
+        font-size: 65px;
+    }
+
+    .jardin-3d {
+        gap: 12px;
+    }
+
+    .rosa3d {
+        height: 105px;
+    }
+
+    .rosa3d span {
+        font-size: 55px;
+    }
+
+    .snake-game {
+        width: 310px;
+        height: 310px;
+    }
+
+    .carta {
+        padding: 25px;
+    }
+
+    .carta h3 {
+        font-size: 38px;
+    }
+
+    .frase-final {
+        font-size: 40px;
+    }
+
+}
+/* =========================================
+   EFECTO MÁGICO AL ABRIR LA CARTA
+========================================= */
+
+#cartaContenido.carta-magica {
+    position: relative;
+    animation: aparecerCarta 2s ease both;
+    transform-origin: center;
+}
+
+@keyframes aparecerCarta {
+    0% {
+        opacity: 0;
+        transform: translateY(35px) scale(0.92);
+        filter: blur(12px);
+        box-shadow: 0 0 0 rgba(194, 91, 255, 0);
+    }
+
+    60% {
+        opacity: 1;
+        filter: blur(0);
+        box-shadow: 0 0 45px rgba(194, 91, 255, 0.4);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+        box-shadow: 0 0 22px rgba(194, 91, 255, 0.2);
+    }
+}
+
+/* Pétalos que aparecen al desbloquear la carta */
+
+.petalo-carta {
+    position: fixed;
+    top: -50px;
+    z-index: 9999;
+    pointer-events: none;
+    user-select: none;
+    animation: caerPetaloCarta linear forwards;
+    filter: drop-shadow(0 0 8px #d9a3ff);
+}
+
+@keyframes caerPetaloCarta {
+    0% {
+        transform: translateY(-30px) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(540deg);
+        opacity: 0;
+    }
+}
+
+/* =========================================
+   MENSAJE DE VOZ PARA ANGHELITA
+========================================= */
+
+.mensaje-voz {
+    margin: 28px auto;
+    padding: 22px;
+    max-width: 500px;
+    text-align: center;
+    border: 1px solid rgba(218, 164, 255, 0.55);
+    border-radius: 22px;
+    background: linear-gradient(
+        145deg,
+        rgba(91, 30, 130, 0.38),
+        rgba(27, 8, 47, 0.88)
+    );
+    box-shadow: 0 0 25px rgba(180, 80, 255, 0.18);
+}
+
+.mensaje-voz h3 {
+    color: #edc9ff;
+    margin-top: 0;
+}
+
+.mensaje-voz p {
+    color: #f8eaff;
+    line-height: 1.7;
+}
+
+.mensaje-voz audio {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    margin: 18px auto;
+}
+
+.mensaje-voz .dedicatoria-voz {
+    color: #e2b2ff;
+    font-style: italic;
+    margin-bottom: 0;
+}

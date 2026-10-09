@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para mi Anghelita 💜🌹</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ============================= -->
+<!-- PÉTALOS -->
+<!-- ============================= -->
+
+<div id="petalos"></div>
+
+<!-- ============================= -->
+<!-- MÚSICA -->
+<!-- ============================= -->
+
+<audio id="musica" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<button id="btnMusica" class="boton-musica">🎵</button>
+
+
+<!-- ===================================================== -->
+<!-- 01 - PORTADA -->
+<!-- ===================================================== -->
+
+<section id="pantalla1" class="pantalla activa">
+
+    <div class="contenido">
+
+        <div class="rosa-principal">🌹</div>
+
+        <div class="fecha-pequena">
+            09 • OCTUBRE • 2026
+        </div>
+
+        <h1>
+            Para mi
+            <span>Anghelita</span>
+        </h1>
+
+        <div class="subtitulo">
+            Mi amorcita, mi reina... 💜
+        </div>
+
+        <p>
+            Preparé algo especialmente para ti.
+            <br>
+            No es solamente una página...
+            <br>
+            es un pequeño pedacito de mi corazón.
+        </p>
+
+        <button class="boton" onclick="siguiente(2)">
+            🌹 Comenzar
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- 02 - ROSAS -->
+<!-- ===================================================== -->
+
+<section id="pantalla2" class="pantalla">
+
+    <div class="contenido">
+
+        <div class="numero">02</div>
+
+        <h2>
+            Un jardín para mi
+            <span>reina</span> 🌹
+        </h2>
+
+        <p class="descripcion">
+            Hay algo escondido en cada rosa...
+            <br>
+            toca cada una para descubrirlo.
+        </p>
+
+
+        <div class="jardin-3d">
+
+            <button class="rosa3d" onclick="tocarRosa(0)">
+                <span>🌹</span>
+            </button>
+
+            <button class="rosa3d" onclick="tocarRosa(1)">
+                <span>🌹</span>
+            </button>
+
+            <button class="rosa3d" onclick="tocarRosa(2)">
+                <span>🌹</span>
+            </button>
+
+            <button class="rosa3d" onclick="tocarRosa(3)">
+                <span>🌹</span>
+            </button>
+
+            <button class="rosa3d" onclick="tocarRosa(4)">
+                <span>🌹</span>
+            </button>
+
+            <button class="rosa3d" onclick="tocarRosa(5)">
+                <span>🌹</span>
+            </button>
+
+        </div>
+
+
+        <div id="fraseRosa" class="frase-rosa">
+            🌹 Toca una rosa, amorcita...
+        </div>
+
+
+        <button
+            id="siguiente2"
+            class="boton siguiente"
+            onclick="siguiente(3)"
+            style="display:none;"
+        >
+            💜 Siguiente
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- 03 - FRASES -->
+<!-- ===================================================== -->
+
+<section id="pantalla3" class="pantalla">
+
+    <div class="contenido">
+
+        <div class="numero">03</div>
+
+        <h2>
+            Cositas que quiero decirte 💌
+        </h2>
+
+        <p class="descripcion">
+            Cada botón guarda un pequeño mensaje.
+            <br>
+            Descúbrelos todos.
+        </p>
+
+
+        <div class="contador-frases">
+            <span id="frasesEncontradas">0</span> / 10
+        </div>
+
+
+        <div class="tarjeta-frase">
+
+            <div id="mensajeFrase">
+                💜
+            </div>
+
+        </div>
+
+
+        <button class="boton" onclick="nuevaFrase()">
+            💌 Descubrir mensaje
+        </button>
+
+
+        <button
+            id="siguiente3"
+            class="boton siguiente"
+            onclick="siguiente(4)"
+            style="display:none;"
+        >
+            🌹 Siguiente
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- 04 - ATRAPA ROSAS -->
+<!-- ===================================================== -->
+
+<section id="pantalla4" class="pantalla">
+
+    <div class="contenido">
+
+        <div class="numero">04</div>
+
+        <h2>
+            Atrapa las rosas 🌹
+        </h2>
+
+        <p class="descripcion">
+            ¡Rápido, amorcita!
+            <br>
+            Atrapa las 10 rosas lo más rápido que puedas.
+        </p>
+
+
+        <div class="marcador">
+            🌹 <span id="puntos">0</span> / 10
+        </div>
+
+        <div class="tiempo">
+            Tiempo:
+            <strong id="tiempo">0.0</strong>s
+        </div>
+
+
+        <div id="zonaJuego" class="zona-juego"></div>
+
+
+        <button
+            id="btnJuego"
+            class="boton"
+            onclick="iniciarJuego()"
+        >
+            🌹 Comenzar
+        </button>
+
+
+        <div id="premioJuego" class="premio"></div>
+
+
+        <div
+            id="passwordJuego"
+            class="password-juego"
+            style="display:none;"
+        >
+
+            <p>
+                🔐 ¡Lo lograste!
+            </p>
+
+            <p>
+                Esta es la contraseña secreta:
+            </p>
+
+            <strong id="claveGenerada"></strong>
+
+            <small>
+                Guárdala bien, amorcita.
+                La necesitarás al final. 💜
+            </small>
+
+        </div>
+
+
+        <button
+            id="siguiente4"
+            class="boton siguiente"
+            onclick="siguiente(5)"
+            style="display:none;"
+        >
+            🐍 Siguiente
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- 05 - GUSANITO -->
+<!-- ===================================================== -->
+
+<section id="pantalla5" class="pantalla">
+
+    <div class="contenido">
+
+        <div class="numero">05</div>
+
+        <h2>
+            El gusanito de Anghelita 🐍💜
+        </h2>
+
+        <p class="descripcion">
+            Come las rosas para crecer.
+            <br>
+            Pero cuidado... ¡no choques!
+        </p>
+
+
+        <div class="snake-marcador">
+            🌹 Rosas:
+            <strong id="rosasSnake">0</strong>
+        </div>
+
+
+        <div id="snakeGame" class="snake-game">
+
+            <canvas id="snakeCanvas"></canvas>
+
+        </div>
+
+
+        <div class="controles">
+
+            <button onclick="direccionSnake('up')">⬆️</button>
+
+            <div>
+                <button onclick="direccionSnake('left')">⬅️</button>
+
+                <button onclick="direccionSnake('down')">⬇️</button>
+
+                <button onclick="direccionSnake('right')">➡️</button>
+            </div>
+
+        </div>
+
+
+        <button
+            id="btnSnake"
+            class="boton"
+            onclick="iniciarSnake()"
+        >
+            🐍 Comenzar juego
+        </button>
+
+
+        <div id="mensajeSnake" class="mensaje-snake"></div>
+
+
+        <button
+            id="siguiente5"
+            class="boton siguiente"
+            onclick="siguiente(6)"
+            style="display:none;"
+        >
+            💜 Continuar
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- 06 - FECHA -->
+<!-- ===================================================== -->
+
+<section id="pantalla6" class="pantalla">
+
+    <div class="contenido">
+
+        <div class="rosa-principal">
+            🌹
+        </div>
+
+        <div class="numero">
+            06
+        </div>
+
+        <h2>
+            09 • 10 • 2026
+        </h2>
+
+        <div class="linea"></div>
+
+        <p class="grande">
+            Hoy todos hablan de regalar rosas moradas...
+        </p>
+
+        <p class="destacado">
+            Pero yo quería regalarte algo que durara
+            un poquito más.
+        </p>
+
+        <p>
+            Por eso hice este pequeño lugar solamente para ti.
+        </p>
+
+
+        <button class="boton siguiente" onclick="siguiente(7)">
+            💌 Tengo algo para ti
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- 07 - CARTA -->
+<!-- ===================================================== -->
+
+<section id="pantalla7" class="pantalla">
+
+    <div class="contenido">
+
+        <div class="numero">
+            07
+        </div>
+
+        <h2>
+            Una carta para ti 💌
+        </h2>
+
+
+        <!-- BLOQUE DE CONTRASEÑA -->
+
+        <div id="bloquePassword" class="bloque-password">
+
+            <p>
+                🔐 Antes de abrir mi carta...
+            </p>
+
+            <p>
+                Escribe la contraseña que encontraste
+                en el juego de las rosas.
+            </p>
+
+            <input
+                id="inputPassword"
+                type="text"
+                placeholder="Escribe la contraseña"
+                autocomplete="off"
+            >
+
+            <button
+                class="boton"
+                onclick="verificarPassword()"
+            >
+                💜 Desbloquear carta
+            </button>
+
+            <div id="errorPassword"></div>
+
+        </div>
+
+
+        <!-- CARTA -->
+
+        <div
+            id="cartaContenido"
+            class="carta"
+            style="display:none;"
+        >
+
+            <div class="corazon-carta">
+                💜
+            </div>
+
+            <h3>
+                Para mi Anghelita
+            </h3>
+
+
+            <p>
+                Amorcita...
+            </p>
+
+
+            <p>
+                Si llegaste hasta aquí es porque fuiste descubriendo
+                cada cosita que preparé para ti.
+                Y quiero que sepas que detrás de cada rosa,
+                cada juego, cada palabra y cada detalle,
+                hay una sola persona en la que estuve pensando
+                mientras hacía todo esto:
+                <strong>tú.</strong>
+            </p>
+
+
+            <p>
+                Anghelita, quizá no siempre encuentre las palabras
+                exactas para decirte todo lo que siento,
+                pero quiero que hoy las leas desde mi corazón.
+            </p>
+
+
+            <p>
+                Eres una persona demasiado especial para mí.
+                Me encanta saber que existes, saber que puedo
+                compartir momentos contigo y, sobre todo,
+                poder llamarte mi amorcita, mi reina.
+            </p>
+
+
+            <p>
+                Por eso quise hacerte algo diferente.
+                No quería simplemente regalarte unas rosas
+                y decirte feliz día.
+                Quería dejarte algo que pudieras guardar,
+                volver a visitar y recordar que hubo alguien
+                que se tomó el tiempo de hacer todo esto
+                pensando en ti.
+            </p>
+
+
+            <p>
+                Y sí...
+                cada rosa morada que viste aquí representa
+                un poquito del cariño que siento por ti. 🌹💜
+            </p>
+
+
+            <p>
+                Quiero seguir creando momentos contigo.
+                Quiero seguir conociéndote, hacerte reír,
+                acompañarte cuando estés feliz y también
+                estar contigo cuando las cosas no estén tan bien.
+            </p>
+
+
+            <p>
+                No te prometo que todo siempre será perfecto,
+                porque sé que ningún amor lo es.
+                Pero sí puedo prometerte algo:
+                <strong>
+                    si estoy contigo, quiero esforzarme
+                    para que cada día valga la pena.
+                </strong>
+            </p>
+
+
+            <p>
+                Anghelita, mi amorcita, mi reina...
+            </p>
+
+
+            <p>
+                Gracias por llegar a mi vida.
+            </p>
+
+
+            <p>
+                Gracias por cada momento, cada sonrisa,
+                cada conversación y cada recuerdo.
+            </p>
+
+
+            <p>
+                Y si algún día dudas de lo mucho que significas
+                para mí, vuelve a esta página y recuerda que
+                alguien estuvo detrás de cada detalle
+                pensando en ti.
+            </p>
+
+
+            <div class="frase-final">
+                Te amo muchísimo. 💜
+            </div>
+
+
+            <p>
+                Feliz 9 de octubre, mi amorcita.
+            </p>
+
+
+            <p>
+                Esta rosa morada es para ti...
+                <br>
+                <strong>
+                    pero mi corazón también. 🌹💜
+                </strong>
+            </p>
+
+
+            <div class="firma">
+                Con todo mi amor,
+                <br><br>
+                <strong>Franz ❤️</strong>
+            </div>
+
+            <div class="mensaje-voz">
+    <h3>🎧 Un mensajito para ti, mi amorcita</h3>
+
+    <p>
+        También quiero que escuches algo
+        que preparé especialmente para ti. 💜
+    </p>
+
+    <audio id="vozAnghelita" controls preload="metadata">
+        <source src="voz.mp3" type="audio/mpeg">
+        Tu navegador no puede reproducir este audio.
+    </audio>
+
+    <p class="dedicatoria-voz">
+        Con todo mi amor, para mi Anghelita. 🌹
+    </p>
+</div>
+
+            <button
+                class="boton siguiente"
+                onclick="siguiente(8)"
+            >
+                🌹 Ver el final
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- 08 - FINAL -->
+<!-- ===================================================== -->
+
+<section id="pantalla8" class="pantalla">
+
+    <div class="contenido final-contenido">
+
+        <div class="corazon-final">
+            💜
+        </div>
+
+        <h2>
+            FIN...
+        </h2>
+
+        <p>
+            ¿Pero sabes qué?
+        </p>
+
+        <h1>
+            Esta historia recién comienza.
+        </h1>
+
+        <div class="rosa-final">
+            🌹
+        </div>
+
+        <p class="firma-final">
+            Para mi Anghelita,
+            <br>
+            mi amorcita,
+            <br>
+            mi reina.
+            <br><br>
+            Con todo mi amor,
+            <br>
+            Franz ❤️
+        </p>
+
+    </div>
+
+</section>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
