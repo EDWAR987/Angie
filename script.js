@@ -934,3 +934,7 @@ function lanzarPetalosCarta() {
 }
 
 dibujarSnake();
+
+function guardarCartaPDF() {
+    window.print();
+}
